@@ -32,4 +32,5 @@ jobs:
       - name: build
         run: |
           git clone https://github.com/apache/spark.git
+          cd spark
           dev/make-distribution.sh --tgz -Phadoop-3 -Phadoop-cloud -Pmesos -Pyarn -Pkinesis-asl -Phive-thriftserver -Pspark-ganglia-lgpl -Pkubernetes -Phive  
