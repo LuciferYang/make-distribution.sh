@@ -20,7 +20,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        java: [ '11' ]
+        java: [ '1.8', '11', '17' ]
     name: Build Spark with JDK ${{ matrix.java }}
 
     steps:
@@ -45,6 +45,5 @@ jobs:
         run: |
           git clone https://github.com/apache/spark.git
           cd spark
-          gh pr checkout 38675
-          dev/change-scala-version.sh 2.13
-          build/mvn clean install -Phadoop-3 -Phadoop-cloud -Pmesos -Pyarn -Pkinesis-asl -Phive-thriftserver -Pspark-ganglia-lgpl -Pkubernetes -Phive  -Pscala-2.13 -fn
+          gh pr checkout 38936
+          build/mvn clean install -DskipTests -Phadoop-3 -Phadoop-cloud -Pmesos -Pyarn -Pkinesis-asl -Phive-thriftserver -Pspark-ganglia-lgpl -Pkubernetes -Phive -Dhadoop.version=3.4.0-SNAPSHOT -Psnapshots-and-staging
