@@ -45,5 +45,6 @@ jobs:
         run: |
           git clone https://github.com/apache/spark.git
           cd spark
-          gh pr checkout 38974
-          build/mvn clean install -DskipTests -Phadoop-3 -Phadoop-cloud -Pmesos -Pyarn -Pkinesis-asl -Phive-thriftserver -Pspark-ganglia-lgpl -Pkubernetes -Phive -Dhadoop.version=3.4.0-SNAPSHOT -Psnapshots-and-staging
+          ./dev/test-dependencies.sh
+          #gh pr checkout 38974
+          #build/mvn clean install -DskipTests -Phadoop-3 -Phadoop-cloud -Pmesos -Pyarn -Pkinesis-asl -Phive-thriftserver -Pspark-ganglia-lgpl -Pkubernetes -Phive -Dhadoop.version=3.4.0-SNAPSHOT -Psnapshots-and-staging
