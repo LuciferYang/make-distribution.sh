@@ -45,7 +45,7 @@ jobs:
         run: |
           git clone https://github.com/apache/spark.git
           cd spark
-          git reset --hard 7671bc975f2d88ab929e4982abfe3e166fa72e35
+          gh pr checkout 39067
           #gh pr checkout 39067
           ./dev/test-dependencies.sh
           #gh pr checkout 38974
